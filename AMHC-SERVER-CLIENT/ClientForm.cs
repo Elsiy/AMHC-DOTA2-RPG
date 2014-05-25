@@ -562,11 +562,6 @@ namespace AMHC_SERVER_CLIENT
         }
         public void update_dialog(string msg)
         {
-            DateTime currentTime = DateTime.Now;
-            int tHour = currentTime.Hour;
-            int tMin = currentTime.Minute;
-            int tSec = currentTime.Second;
-            String TimeMsg = tHour.ToString() + ":" + tMin.ToString() + ":" + tSec.ToString() + " : ";
             debug_dialog.Items.Add(msg);
         }
 
