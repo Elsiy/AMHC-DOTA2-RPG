@@ -610,8 +610,11 @@ namespace AMHC_SERVER_CLIENT
 
         private void button3_Click(object sender, EventArgs e)
         {
-            AUTOEXECSETTINGS forms = new AUTOEXECSETTINGS();
-            forms.Show();
+            //AUTOEXECSETTINGS forms = new AUTOEXECSETTINGS();
+            //forms.Show();
+            string _command = debug_dialog.SelectedItem.ToString();
+            update_dialog(":复制成功:请到游戏CTRL+V粘贴:");
+            Clipboard.SetData(System.Windows.Forms.DataFormats.Text,_command);
         }
         // 读操作
         private static ArrayList Readini(string readFile)
