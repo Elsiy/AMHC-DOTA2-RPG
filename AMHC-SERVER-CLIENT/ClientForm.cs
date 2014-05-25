@@ -145,11 +145,12 @@ namespace AMHC_SERVER_CLIENT
             {
                 ArrayList aa = new ArrayList();
                 aa = Readini(iniFile);
-                foreach (string bb in aa){
+                foreach (string bb in aa)
+                {
                     if (bb.IndexOf("dota2Path") > -1)
                     {
-                        dota2Path = bb.Substring(bb.IndexOf("-amhc-is-"),bb.Length-bb.IndexOf("-amhc-is-"));
-                        dota2Path = dota2Path.Substring(9,dota2Path.Length-9);
+                        dota2Path = bb.Substring(bb.IndexOf("-amhc-is-"), bb.Length - bb.IndexOf("-amhc-is-"));
+                        dota2Path = dota2Path.Substring(9, dota2Path.Length - 9);
                         //MessageBox.Show(dota2Path );
                     }
                 }
@@ -195,7 +196,7 @@ namespace AMHC_SERVER_CLIENT
             };
             //ArrayList dd = new ArrayList();
             //dd.Add( );
-            Writeini(iniFile,"dota2Path-amhc-is-" + dota2Path);
+            Writeini(iniFile, "dota2Path-amhc-is-" + dota2Path);
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -276,7 +277,7 @@ namespace AMHC_SERVER_CLIENT
         {
             update_dialog("复制新RPG文件夹");
             CopyDirectory(addonBakPath + "\\" + addonList.SelectedItem.ToString(), addonPath + "\\" + addonList.SelectedItem.ToString());
-            
+
             update_dialog("刷新成功，现在的RPG为");
             update_commands(addonList.SelectedItem.ToString());
             ReadCurrentAddon();
@@ -437,7 +438,7 @@ namespace AMHC_SERVER_CLIENT
                     }
                     catch (System.Exception ex)
                     {
-                        
+
                         return false;
                         throw ex;
                     }
@@ -485,8 +486,8 @@ namespace AMHC_SERVER_CLIENT
             update_dialog("本RPG单机进入方法：");
             update_dialog("依次在控制台输入下列指令");
             update_dialog("dota_local_addon_enable 1");
-            update_dialog("dota_local_addon_game "+ _aName);
-            update_dialog("dota_local_addon_map "+ _aName);
+            update_dialog("dota_local_addon_game " + _aName);
+            update_dialog("dota_local_addon_map " + _aName);
             update_dialog("dota_force_gamemode 15");
             update_dialog("update_addon_paths");
             update_dialog("dota_wait_for_players_to_load 0");
@@ -494,7 +495,9 @@ namespace AMHC_SERVER_CLIENT
             if (_aName == "Reflex")
             {
                 mapName = "reflex";
-            }else if (_aName =="Frota"){
+            }
+            else if (_aName == "Frota")
+            {
                 update_dialog("括号内的内容不用输");
                 mapName = "riverofsouls(钩肥地图)";
             }
@@ -612,9 +615,13 @@ namespace AMHC_SERVER_CLIENT
         {
             //AUTOEXECSETTINGS forms = new AUTOEXECSETTINGS();
             //forms.Show();
-            string _command = debug_dialog.SelectedItem.ToString();
-            update_dialog(":复制成功:请到游戏CTRL+V粘贴:");
-            Clipboard.SetData(System.Windows.Forms.DataFormats.Text,_command);
+            string _command = "";
+            _command = debug_dialog.SelectedItem.ToString();
+            if (_command != "")
+            {
+                update_dialog(":复制成功:请到游戏CTRL+V粘贴:");
+                Clipboard.SetData(System.Windows.Forms.DataFormats.Text, _command);
+            }
         }
         // 读操作
         private static ArrayList Readini(string readFile)
@@ -635,12 +642,12 @@ namespace AMHC_SERVER_CLIENT
             return aa;
         }
 
-        public static void Writeini(string writeFile,string data)
+        public static void Writeini(string writeFile, string data)
         {
             // 写入文件的源路径及其写入流
-                StreamWriter sw = new StreamWriter(writeFile, false);
-                sw.WriteLine(data);
-                sw.Close();
+            StreamWriter sw = new StreamWriter(writeFile, false);
+            sw.WriteLine(data);
+            sw.Close();
         }
     }
 }
