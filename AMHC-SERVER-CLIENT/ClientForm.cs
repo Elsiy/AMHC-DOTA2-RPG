@@ -198,20 +198,7 @@ namespace AMHC_SERVER_CLIENT
             //dd.Add( );
             Writeini(iniFile, "dota2Path-amhc-is-" + dota2Path);
         }
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Process process = new Process();
-            process.StartInfo.FileName = "C:\\amhcserver\\server_reflex_27015_record.bat";
-            process.StartInfo.Arguments = "";
-            try
-            {
-                process.Start();
-            }
-            catch (System.Exception)
-            {
-                throw;
-            }
-        }
+        
         #endregion 读取写入设置
         #region 读取Addons文件夹
         private void ReadAddons()
