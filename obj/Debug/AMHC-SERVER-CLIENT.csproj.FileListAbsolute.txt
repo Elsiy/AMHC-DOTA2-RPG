@@ -1,0 +1,10 @@
+c:\users\xavier\documents\visual studio 2013\Projects\AMHC-SERVER-CLIENT\AMHC-SERVER-CLIENT\bin\Debug\AMHC-SERVER-CLIENT.exe.config
+c:\users\xavier\documents\visual studio 2013\Projects\AMHC-SERVER-CLIENT\AMHC-SERVER-CLIENT\obj\Debug\AMHC-SERVER-CLIENT.csprojResolveAssemblyReference.cache
+c:\users\xavier\documents\visual studio 2013\Projects\AMHC-SERVER-CLIENT\AMHC-SERVER-CLIENT\obj\Debug\AMHC_SERVER_CLIENT.Properties.Resources.resources
+c:\users\xavier\documents\visual studio 2013\Projects\AMHC-SERVER-CLIENT\AMHC-SERVER-CLIENT\obj\Debug\AMHC-SERVER-CLIENT.csproj.GenerateResource.Cache
+c:\users\xavier\documents\visual studio 2013\Projects\AMHC-SERVER-CLIENT\AMHC-SERVER-CLIENT\bin\Debug\AMHC-SERVER-CLIENT.exe
+c:\users\xavier\documents\visual studio 2013\Projects\AMHC-SERVER-CLIENT\AMHC-SERVER-CLIENT\bin\Debug\AMHC-SERVER-CLIENT.pdb
+c:\users\xavier\documents\visual studio 2013\Projects\AMHC-SERVER-CLIENT\AMHC-SERVER-CLIENT\obj\Debug\AMHC-SERVER-CLIENT.exe
+c:\users\xavier\documents\visual studio 2013\Projects\AMHC-SERVER-CLIENT\AMHC-SERVER-CLIENT\obj\Debug\AMHC-SERVER-CLIENT.pdb
+c:\users\xavier\documents\visual studio 2013\Projects\AMHC-SERVER-CLIENT\AMHC-SERVER-CLIENT\obj\Debug\AMHC_SERVER_CLIENT.ClientForm.resources
+C:\Users\Xavier\documents\visual studio 2013\Projects\AMHC-SERVER-CLIENT\AMHC-SERVER-CLIENT\obj\Debug\AMHC_SERVER_CLIENT.AUTOEXECSETTINGS.resources
