@@ -423,42 +423,49 @@ namespace AMHC_SERVER_CLIENT
         }
         public static Boolean CopyDirectory(String sourcePath, String destinationPath)
         {
-            DirectoryInfo info = new DirectoryInfo(sourcePath);
-            Directory.CreateDirectory(destinationPath);
-            foreach (FileSystemInfo fsi in info.GetFileSystemInfos())
+            if (Directory.Exists(sourcePath))
             {
-                String destName = Path.Combine(destinationPath, fsi.Name);
-
-                if (fsi is System.IO.FileInfo)
+                DirectoryInfo info = new DirectoryInfo(sourcePath);
+                Directory.CreateDirectory(destinationPath);
+                foreach (FileSystemInfo fsi in info.GetFileSystemInfos())
                 {
-                    //如果是文件，复制文件
-                    try
-                    {
-                        File.Copy(fsi.FullName, destName);
-                    }
-                    catch (System.Exception ex)
-                    {
+                    String destName = Path.Combine(destinationPath, fsi.Name);
 
-                        return false;
-                        throw ex;
+                    if (fsi is System.IO.FileInfo)
+                    {
+                        //如果是文件，复制文件
+                        try
+                        {
+                            File.Copy(fsi.FullName, destName);
+                        }
+                        catch (System.Exception ex)
+                        {
+
+                            return false;
+                            throw ex;
+                        }
+                    }
+                    else
+                    //如果是文件夹，新建文件夹，递归
+                    {
+                        try
+                        {
+                            Directory.CreateDirectory(destName);
+                            CopyDirectory(fsi.FullName, destName);
+                        }
+                        catch (System.Exception ex)
+                        {
+                            return false;
+                            throw ex;
+                        }
                     }
                 }
-                else
-                //如果是文件夹，新建文件夹，递归
-                {
-                    try
-                    {
-                        Directory.CreateDirectory(destName);
-                        CopyDirectory(fsi.FullName, destName);
-                    }
-                    catch (System.Exception ex)
-                    {
-                        return false;
-                        throw ex;
-                    }
-                }
+                return true;
             }
-            return true;
+            else
+            {
+                return false;
+            }
         }
         private string GetRegistData(string name)
         {
