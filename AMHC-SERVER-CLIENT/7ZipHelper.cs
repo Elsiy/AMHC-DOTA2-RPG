@@ -76,7 +76,5 @@ namespace AMHC_SERVER_CLIENT
                 throw ex;
             }
         }
-
-
     }
 }

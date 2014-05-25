@@ -375,6 +375,7 @@ namespace AMHC_SERVER_CLIENT
             string t7ZipPath = (AppDomain.CurrentDomain.BaseDirectory + "7z.exe");
             //MessageBox.Show(t7ZipPath );
             AMHC_SERVER_CLIENT._7ZipHelper.ZipHelper(t7ZipPath);
+            #region bak
             //MessageBox.Show(AMHC_SERVER_CLIENT._7ZipHelper);
             //解压缩开始
             /*if (!AMHC_SERVER_CLIENT.WINRAR.Exists())
@@ -397,11 +398,11 @@ namespace AMHC_SERVER_CLIENT
             }
             else
             {*/
+            #endregion
             //Boolean c = AMHC_SERVER_CLIENT.WINRAR.unCompressRAR(unRarPath, SavePath, rarName);
             update_dialog("尝试使用7ZIP解压缩");
             Boolean c = AMHC_SERVER_CLIENT._7ZipHelper.DecompressFileToDestDirectory(SavePath + rarName, unRarPath);
             return c;
-
         }
         #endregion
 
