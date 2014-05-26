@@ -19,8 +19,10 @@ using System.Windows.Forms;
 
 namespace AMHC_SERVER_CLIENT
 {
+
     public partial class ClientForm : Form
     {
+        #region 全局安装
         //设置全局变量
         string dota2Path;
         string addonPath;
@@ -344,7 +346,7 @@ namespace AMHC_SERVER_CLIENT
                 if (addonFolder is DirectoryInfo)    //判断是否文件夹
                 {
                     DirectoryInfo aFolder = new DirectoryInfo(addonFolder.FullName);
-                    if (aFolder.Name != "zAddonsBak"|| aFolder.Name != "d2fixups"||aFolder.Name != "metamod"||aFolder.Name != "sourcemod")
+                    if (aFolder.Name != "zAddonsBak")
                     {
                         update_dialog("删除现有Addon:" + aFolder.Name);
                         DeleteFolder(addonPath + "\\" + aFolder.Name);
@@ -754,6 +756,116 @@ namespace AMHC_SERVER_CLIENT
         private void button5_Click(object sender, EventArgs e)
         {
             steamcommandtext.Text = "connect/play.dota2rpg.com:27060";
+        }
+        #endregion 全局安装
+        #region 全局网络
+        private Socket s; //定义Socket对象
+        public NetworkStream ns;//网络流 
+        public StreamReader sr;//流读取 
+        public StreamWriter sw;//流写入
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            s = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            IPAddress serverIP = IPAddress.Parse("127.0.0.1");   //服务器IP 
+            try 
+            {     
+                s.Connect(serverIP, 9902); //连接服务器，端口号用9900 
+            } 
+            catch (Exception ex) 
+            {     
+                MessageBox.Show(ex.Message); 
+            } 
+            try 
+            {     
+                ns = new NetworkStream(s); //实例化网络流
+                sr = new StreamReader(ns); //实例化流读取对象
+                sw = new StreamWriter(ns); //实例化写入流对象
+                sw.WriteLine(serverText.Text);//将textBox1.Text的数据写入流
+                sw.Flush(); //清理缓冲区
+                serverResponse.Items.Add(sr.ReadLine());//将从流中读取的数据写入lbInfo 
+                
+            }
+            catch (Exception ex)
+            {     
+                MessageBox.Show(ex.Message); //捕获异常
+            }
+        }
+
+        private Boolean SendServerCommand(string _command)
+        {
+            s = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            IPAddress serverIP = IPAddress.Parse("127.0.0.1");   //服务器IP 
+            try 
+            {     
+                s.Connect(serverIP, 9900); //连接服务器，端口号用9900 
+            } 
+            catch (Exception ex) 
+            {     
+                MessageBox.Show(ex.Message); 
+                return false;
+            } 
+            try 
+            {     
+                ns = new NetworkStream(s); //实例化网络流
+                sr = new StreamReader(ns); //实例化流读取对象
+                sw = new StreamWriter(ns); //实例化写入流对象
+                sw.WriteLine(_command);//将textBox1.Text的数据写入流
+                sw.Flush(); //清理缓冲区
+                serverResponse.Items.Add(sr.ReadLine());//将从流中读取的数据写入lbInfo 
+                return true;
+            }
+            catch (Exception ex)
+            {     
+                MessageBox.Show(ex.Message); //捕获异常
+                return false;
+            }
+            
+        }
+        
+        #endregion 全局网络
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            //for (int i = 1;i<7;i++){
+            //    SendServerCommand("RefreshServerStatu"+i.ToString());
+            //}
+            SendServerCommand("RefreshServerStatu1");
+        }
+
+        private void serverResponse_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void startServer1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("将会在服务器再启动一个DOTA2 RPG房间，请确认输入的服务器启动密码正确，服务器开始启动后，本程序可能会假死，请耐心等待，服务器端口号将会在左边窗口显示");
+            string server_command = "StartServergAMHCmeReflexeAMHCGMmAMHCmereflexeAMHCMN"+ "mAMHCpwd"+pwdtext.Text+"eAMHCpwd";
+            s = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            IPAddress serverIP = IPAddress.Parse("218.244.130.187");   //服务器IP 
+            try 
+            {     
+                s.Connect(serverIP, 9987); //连接服务器，端口号用9900 
+            } 
+            catch (Exception ex) 
+            {     
+                MessageBox.Show(ex.Message); 
+            } 
+            try 
+            {     
+                ns = new NetworkStream(s); //实例化网络流
+                sr = new StreamReader(ns); //实例化流读取对象
+                sw = new StreamWriter(ns); //实例化写入流对象
+                sw.WriteLine(server_command);//将textBox1.Text的数据写入流
+                sw.Flush(); //清理缓冲区
+                serverResponse.Items.Add(sr.ReadLine());//将从流中读取的数据写入lbInfo 
+                
+            }
+            catch (Exception ex)
+            {     
+                MessageBox.Show(ex.Message); //捕获异常
+            }
         }
 
     }

@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AMHC-SERVER-CLIENT", "AMHC-SERVER-CLIENT\AMHC-SERVER-CLIENT.csproj", "{DB82B692-A2F1-45E7-BFF1-33855452338E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AMHC-SERVER-SERVER", "AMHC-SERVER-SERVER\AMHC-SERVER-SERVER.csproj", "{BCE4BD3A-9C63-49FE-8694-94FBAD94E08B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{DB82B692-A2F1-45E7-BFF1-33855452338E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB82B692-A2F1-45E7-BFF1-33855452338E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB82B692-A2F1-45E7-BFF1-33855452338E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCE4BD3A-9C63-49FE-8694-94FBAD94E08B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCE4BD3A-9C63-49FE-8694-94FBAD94E08B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCE4BD3A-9C63-49FE-8694-94FBAD94E08B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCE4BD3A-9C63-49FE-8694-94FBAD94E08B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

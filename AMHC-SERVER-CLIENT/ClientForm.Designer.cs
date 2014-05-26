@@ -38,6 +38,34 @@
             this.label5 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.steamcommandtext = new System.Windows.Forms.TextBox();
+            this.serverText = new System.Windows.Forms.TextBox();
+            this.button6 = new System.Windows.Forms.Button();
+            this.serverResponse = new System.Windows.Forms.ListBox();
+            this.startServer1 = new System.Windows.Forms.Button();
+            this.serverMap1 = new System.Windows.Forms.TextBox();
+            this.serverPort1 = new System.Windows.Forms.TextBox();
+            this.serverPort2 = new System.Windows.Forms.TextBox();
+            this.serverMap2 = new System.Windows.Forms.TextBox();
+            this.serverPort3 = new System.Windows.Forms.TextBox();
+            this.serverMap3 = new System.Windows.Forms.TextBox();
+            this.serverPort4 = new System.Windows.Forms.TextBox();
+            this.serverMap4 = new System.Windows.Forms.TextBox();
+            this.serverPort5 = new System.Windows.Forms.TextBox();
+            this.serverMap5 = new System.Windows.Forms.TextBox();
+            this.serverPort6 = new System.Windows.Forms.TextBox();
+            this.serverMap6 = new System.Windows.Forms.TextBox();
+            this.serverPort7 = new System.Windows.Forms.TextBox();
+            this.serverMap7 = new System.Windows.Forms.TextBox();
+            this.button8 = new System.Windows.Forms.Button();
+            this.startServer2 = new System.Windows.Forms.Button();
+            this.startServer3 = new System.Windows.Forms.Button();
+            this.startServer4 = new System.Windows.Forms.Button();
+            this.startServer5 = new System.Windows.Forms.Button();
+            this.startServer6 = new System.Windows.Forms.Button();
+            this.startServer7 = new System.Windows.Forms.Button();
+            this.getAddonDownloadUrl = new System.Windows.Forms.Button();
+            this.pwdtext = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // progressBar1
@@ -138,9 +166,9 @@
             // 
             // btn_download
             // 
-            this.btn_download.Location = new System.Drawing.Point(170, 292);
+            this.btn_download.Location = new System.Drawing.Point(227, 292);
             this.btn_download.Name = "btn_download";
-            this.btn_download.Size = new System.Drawing.Size(144, 33);
+            this.btn_download.Size = new System.Drawing.Size(87, 33);
             this.btn_download.TabIndex = 13;
             this.btn_download.Text = "下载RPG";
             this.btn_download.UseVisualStyleBackColor = true;
@@ -170,7 +198,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(37, 440);
+            this.label4.Location = new System.Drawing.Point(231, 681);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(509, 12);
             this.label4.TabIndex = 16;
@@ -275,13 +303,289 @@
             this.steamcommandtext.Size = new System.Drawing.Size(151, 21);
             this.steamcommandtext.TabIndex = 25;
             // 
+            // serverText
+            // 
+            this.serverText.Enabled = false;
+            this.serverText.Location = new System.Drawing.Point(14, 460);
+            this.serverText.Name = "serverText";
+            this.serverText.Size = new System.Drawing.Size(300, 21);
+            this.serverText.TabIndex = 26;
+            this.serverText.Text = "StartServergAMHCmeReflexeAMHCGMmAMHCmereflexeAMHCMN";
+            // 
+            // button6
+            // 
+            this.button6.Enabled = false;
+            this.button6.Location = new System.Drawing.Point(325, 460);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.TabIndex = 27;
+            this.button6.Text = "发送指令";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // serverResponse
+            // 
+            this.serverResponse.FormattingEnabled = true;
+            this.serverResponse.ItemHeight = 12;
+            this.serverResponse.Location = new System.Drawing.Point(16, 487);
+            this.serverResponse.Name = "serverResponse";
+            this.serverResponse.Size = new System.Drawing.Size(384, 184);
+            this.serverResponse.TabIndex = 28;
+            this.serverResponse.SelectedIndexChanged += new System.EventHandler(this.serverResponse_SelectedIndexChanged);
+            // 
+            // startServer1
+            // 
+            this.startServer1.Location = new System.Drawing.Point(618, 487);
+            this.startServer1.Name = "startServer1";
+            this.startServer1.Size = new System.Drawing.Size(91, 21);
+            this.startServer1.TabIndex = 29;
+            this.startServer1.Text = "启动服务器";
+            this.startServer1.UseVisualStyleBackColor = true;
+            this.startServer1.Click += new System.EventHandler(this.startServer1_Click);
+            // 
+            // serverMap1
+            // 
+            this.serverMap1.Location = new System.Drawing.Point(406, 487);
+            this.serverMap1.Name = "serverMap1";
+            this.serverMap1.Size = new System.Drawing.Size(100, 21);
+            this.serverMap1.TabIndex = 30;
+            this.serverMap1.Text = "Reflex";
+            // 
+            // serverPort1
+            // 
+            this.serverPort1.Location = new System.Drawing.Point(512, 487);
+            this.serverPort1.Name = "serverPort1";
+            this.serverPort1.Size = new System.Drawing.Size(100, 21);
+            this.serverPort1.TabIndex = 31;
+            this.serverPort1.Text = "reflex";
+            // 
+            // serverPort2
+            // 
+            this.serverPort2.Enabled = false;
+            this.serverPort2.Location = new System.Drawing.Point(512, 514);
+            this.serverPort2.Name = "serverPort2";
+            this.serverPort2.Size = new System.Drawing.Size(100, 21);
+            this.serverPort2.TabIndex = 33;
+            // 
+            // serverMap2
+            // 
+            this.serverMap2.Enabled = false;
+            this.serverMap2.Location = new System.Drawing.Point(406, 514);
+            this.serverMap2.Name = "serverMap2";
+            this.serverMap2.Size = new System.Drawing.Size(100, 21);
+            this.serverMap2.TabIndex = 32;
+            // 
+            // serverPort3
+            // 
+            this.serverPort3.Enabled = false;
+            this.serverPort3.Location = new System.Drawing.Point(512, 541);
+            this.serverPort3.Name = "serverPort3";
+            this.serverPort3.Size = new System.Drawing.Size(100, 21);
+            this.serverPort3.TabIndex = 35;
+            // 
+            // serverMap3
+            // 
+            this.serverMap3.Enabled = false;
+            this.serverMap3.Location = new System.Drawing.Point(406, 541);
+            this.serverMap3.Name = "serverMap3";
+            this.serverMap3.Size = new System.Drawing.Size(100, 21);
+            this.serverMap3.TabIndex = 34;
+            // 
+            // serverPort4
+            // 
+            this.serverPort4.Enabled = false;
+            this.serverPort4.Location = new System.Drawing.Point(512, 568);
+            this.serverPort4.Name = "serverPort4";
+            this.serverPort4.Size = new System.Drawing.Size(100, 21);
+            this.serverPort4.TabIndex = 37;
+            // 
+            // serverMap4
+            // 
+            this.serverMap4.Enabled = false;
+            this.serverMap4.Location = new System.Drawing.Point(406, 568);
+            this.serverMap4.Name = "serverMap4";
+            this.serverMap4.Size = new System.Drawing.Size(100, 21);
+            this.serverMap4.TabIndex = 36;
+            // 
+            // serverPort5
+            // 
+            this.serverPort5.Enabled = false;
+            this.serverPort5.Location = new System.Drawing.Point(512, 595);
+            this.serverPort5.Name = "serverPort5";
+            this.serverPort5.Size = new System.Drawing.Size(100, 21);
+            this.serverPort5.TabIndex = 39;
+            // 
+            // serverMap5
+            // 
+            this.serverMap5.Enabled = false;
+            this.serverMap5.Location = new System.Drawing.Point(406, 595);
+            this.serverMap5.Name = "serverMap5";
+            this.serverMap5.Size = new System.Drawing.Size(100, 21);
+            this.serverMap5.TabIndex = 38;
+            // 
+            // serverPort6
+            // 
+            this.serverPort6.Enabled = false;
+            this.serverPort6.Location = new System.Drawing.Point(512, 622);
+            this.serverPort6.Name = "serverPort6";
+            this.serverPort6.Size = new System.Drawing.Size(100, 21);
+            this.serverPort6.TabIndex = 41;
+            // 
+            // serverMap6
+            // 
+            this.serverMap6.Enabled = false;
+            this.serverMap6.Location = new System.Drawing.Point(406, 622);
+            this.serverMap6.Name = "serverMap6";
+            this.serverMap6.Size = new System.Drawing.Size(100, 21);
+            this.serverMap6.TabIndex = 40;
+            // 
+            // serverPort7
+            // 
+            this.serverPort7.Enabled = false;
+            this.serverPort7.Location = new System.Drawing.Point(512, 649);
+            this.serverPort7.Name = "serverPort7";
+            this.serverPort7.Size = new System.Drawing.Size(100, 21);
+            this.serverPort7.TabIndex = 43;
+            // 
+            // serverMap7
+            // 
+            this.serverMap7.Enabled = false;
+            this.serverMap7.Location = new System.Drawing.Point(406, 649);
+            this.serverMap7.Name = "serverMap7";
+            this.serverMap7.Size = new System.Drawing.Size(100, 21);
+            this.serverMap7.TabIndex = 42;
+            // 
+            // button8
+            // 
+            this.button8.Enabled = false;
+            this.button8.Location = new System.Drawing.Point(406, 462);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(303, 21);
+            this.button8.TabIndex = 44;
+            this.button8.Text = "RPG             地图          刷新服务器状态";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // startServer2
+            // 
+            this.startServer2.Enabled = false;
+            this.startServer2.Location = new System.Drawing.Point(618, 514);
+            this.startServer2.Name = "startServer2";
+            this.startServer2.Size = new System.Drawing.Size(91, 21);
+            this.startServer2.TabIndex = 45;
+            this.startServer2.Text = "启动服务器";
+            this.startServer2.UseVisualStyleBackColor = true;
+            // 
+            // startServer3
+            // 
+            this.startServer3.Enabled = false;
+            this.startServer3.Location = new System.Drawing.Point(618, 541);
+            this.startServer3.Name = "startServer3";
+            this.startServer3.Size = new System.Drawing.Size(91, 21);
+            this.startServer3.TabIndex = 46;
+            this.startServer3.Text = "启动服务器";
+            this.startServer3.UseVisualStyleBackColor = true;
+            // 
+            // startServer4
+            // 
+            this.startServer4.Enabled = false;
+            this.startServer4.Location = new System.Drawing.Point(618, 568);
+            this.startServer4.Name = "startServer4";
+            this.startServer4.Size = new System.Drawing.Size(91, 21);
+            this.startServer4.TabIndex = 47;
+            this.startServer4.Text = "启动服务器";
+            this.startServer4.UseVisualStyleBackColor = true;
+            // 
+            // startServer5
+            // 
+            this.startServer5.Enabled = false;
+            this.startServer5.Location = new System.Drawing.Point(618, 595);
+            this.startServer5.Name = "startServer5";
+            this.startServer5.Size = new System.Drawing.Size(91, 21);
+            this.startServer5.TabIndex = 48;
+            this.startServer5.Text = "启动服务器";
+            this.startServer5.UseVisualStyleBackColor = true;
+            // 
+            // startServer6
+            // 
+            this.startServer6.Enabled = false;
+            this.startServer6.Location = new System.Drawing.Point(618, 622);
+            this.startServer6.Name = "startServer6";
+            this.startServer6.Size = new System.Drawing.Size(91, 21);
+            this.startServer6.TabIndex = 49;
+            this.startServer6.Text = "启动服务器";
+            this.startServer6.UseVisualStyleBackColor = true;
+            // 
+            // startServer7
+            // 
+            this.startServer7.Enabled = false;
+            this.startServer7.Location = new System.Drawing.Point(618, 649);
+            this.startServer7.Name = "startServer7";
+            this.startServer7.Size = new System.Drawing.Size(91, 21);
+            this.startServer7.TabIndex = 50;
+            this.startServer7.Text = "启动服务器";
+            this.startServer7.UseVisualStyleBackColor = true;
+            // 
+            // getAddonDownloadUrl
+            // 
+            this.getAddonDownloadUrl.Location = new System.Drawing.Point(170, 292);
+            this.getAddonDownloadUrl.Name = "getAddonDownloadUrl";
+            this.getAddonDownloadUrl.Size = new System.Drawing.Size(51, 33);
+            this.getAddonDownloadUrl.TabIndex = 51;
+            this.getAddonDownloadUrl.Text = "刷新下载地址";
+            this.getAddonDownloadUrl.UseVisualStyleBackColor = true;
+            // 
+            // pwdtext
+            // 
+            this.pwdtext.Location = new System.Drawing.Point(715, 487);
+            this.pwdtext.Name = "pwdtext";
+            this.pwdtext.Size = new System.Drawing.Size(140, 21);
+            this.pwdtext.TabIndex = 52;
+            this.pwdtext.UseSystemPasswordChar = true;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(717, 473);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(89, 12);
+            this.label6.TabIndex = 53;
+            this.label6.Text = "服务器启动密码";
+            // 
             // ClientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(984, 461);
+            this.ClientSize = new System.Drawing.Size(984, 697);
             this.ControlBox = false;
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.pwdtext);
+            this.Controls.Add(this.startServer7);
+            this.Controls.Add(this.startServer6);
+            this.Controls.Add(this.startServer5);
+            this.Controls.Add(this.startServer4);
+            this.Controls.Add(this.startServer3);
+            this.Controls.Add(this.startServer2);
+            this.Controls.Add(this.button8);
+            this.Controls.Add(this.serverPort7);
+            this.Controls.Add(this.serverMap7);
+            this.Controls.Add(this.serverPort6);
+            this.Controls.Add(this.serverMap6);
+            this.Controls.Add(this.serverPort5);
+            this.Controls.Add(this.serverMap5);
+            this.Controls.Add(this.serverPort4);
+            this.Controls.Add(this.serverMap4);
+            this.Controls.Add(this.serverPort3);
+            this.Controls.Add(this.serverMap3);
+            this.Controls.Add(this.serverPort2);
+            this.Controls.Add(this.serverMap2);
+            this.Controls.Add(this.serverPort1);
+            this.Controls.Add(this.serverMap1);
+            this.Controls.Add(this.startServer1);
+            this.Controls.Add(this.serverResponse);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.serverText);
             this.Controls.Add(this.steamcommandtext);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.label5);
@@ -295,7 +599,6 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.progressBar1);
-            this.Controls.Add(this.btn_download);
             this.Controls.Add(this.installList);
             this.Controls.Add(this.amhc_btn_set_addon);
             this.Controls.Add(this.textBox1);
@@ -304,8 +607,10 @@
             this.Controls.Add(this.addonList);
             this.Controls.Add(this.amhc_btn_exit);
             this.Controls.Add(this.debug_dialog);
-            this.MaximumSize = new System.Drawing.Size(1000, 500);
-            this.MinimumSize = new System.Drawing.Size(1000, 500);
+            this.Controls.Add(this.getAddonDownloadUrl);
+            this.Controls.Add(this.btn_download);
+            this.MaximumSize = new System.Drawing.Size(1000, 736);
+            this.MinimumSize = new System.Drawing.Size(1000, 736);
             this.Name = "ClientForm";
             this.Text = "AMHC-DOTA2RPG安装工具";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -339,6 +644,34 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.TextBox steamcommandtext;
+        private System.Windows.Forms.TextBox serverText;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.ListBox serverResponse;
+        private System.Windows.Forms.Button startServer1;
+        private System.Windows.Forms.TextBox serverMap1;
+        private System.Windows.Forms.TextBox serverPort1;
+        private System.Windows.Forms.TextBox serverPort2;
+        private System.Windows.Forms.TextBox serverMap2;
+        private System.Windows.Forms.TextBox serverPort3;
+        private System.Windows.Forms.TextBox serverMap3;
+        private System.Windows.Forms.TextBox serverPort4;
+        private System.Windows.Forms.TextBox serverMap4;
+        private System.Windows.Forms.TextBox serverPort5;
+        private System.Windows.Forms.TextBox serverMap5;
+        private System.Windows.Forms.TextBox serverPort6;
+        private System.Windows.Forms.TextBox serverMap6;
+        private System.Windows.Forms.TextBox serverPort7;
+        private System.Windows.Forms.TextBox serverMap7;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button startServer2;
+        private System.Windows.Forms.Button startServer3;
+        private System.Windows.Forms.Button startServer4;
+        private System.Windows.Forms.Button startServer5;
+        private System.Windows.Forms.Button startServer6;
+        private System.Windows.Forms.Button startServer7;
+        private System.Windows.Forms.Button getAddonDownloadUrl;
+        private System.Windows.Forms.TextBox pwdtext;
+        private System.Windows.Forms.Label label6;
     }
 }
 
