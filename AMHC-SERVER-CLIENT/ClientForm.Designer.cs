@@ -14,6 +14,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.debug_dialog = new System.Windows.Forms.ListBox();
             this.amhc_btn_exit = new System.Windows.Forms.Button();
@@ -30,6 +31,13 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.treeView = new System.Windows.Forms.TreeView();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
+            this.steamcommandtext = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // progressBar1
@@ -48,16 +56,17 @@
             "88:88:88 ：此处显示DEBUG信息。"});
             this.debug_dialog.Location = new System.Drawing.Point(325, 43);
             this.debug_dialog.Name = "debug_dialog";
-            this.debug_dialog.Size = new System.Drawing.Size(247, 280);
+            this.debug_dialog.Size = new System.Drawing.Size(247, 256);
             this.debug_dialog.TabIndex = 3;
+            this.debug_dialog.SelectedIndexChanged += new System.EventHandler(this.debug_dialog_SelectedIndexChanged);
             // 
             // amhc_btn_exit
             // 
             this.amhc_btn_exit.BackColor = System.Drawing.SystemColors.HotTrack;
             this.amhc_btn_exit.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.amhc_btn_exit.Location = new System.Drawing.Point(325, 385);
+            this.amhc_btn_exit.Location = new System.Drawing.Point(325, 395);
             this.amhc_btn_exit.Name = "amhc_btn_exit";
-            this.amhc_btn_exit.Size = new System.Drawing.Size(247, 45);
+            this.amhc_btn_exit.Size = new System.Drawing.Size(247, 35);
             this.amhc_btn_exit.TabIndex = 4;
             this.amhc_btn_exit.Text = "退出";
             this.amhc_btn_exit.UseVisualStyleBackColor = false;
@@ -100,7 +109,7 @@
             this.textBox1.Location = new System.Drawing.Point(13, 61);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(301, 21);
+            this.textBox1.Size = new System.Drawing.Size(143, 21);
             this.textBox1.TabIndex = 9;
             // 
             // amhc_btn_set_addon
@@ -150,9 +159,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(443, 331);
+            this.button2.Location = new System.Drawing.Point(325, 305);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(129, 37);
+            this.button2.Size = new System.Drawing.Size(247, 20);
             this.button2.TabIndex = 15;
             this.button2.Text = "清空DEBUG信息";
             this.button2.UseVisualStyleBackColor = true;
@@ -180,11 +189,11 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(325, 331);
+            this.button3.Location = new System.Drawing.Point(325, 352);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(112, 37);
+            this.button3.Size = new System.Drawing.Size(247, 37);
             this.button3.TabIndex = 18;
-            this.button3.Text = "复制这条指令";
+            this.button3.Text = "在DOTA2执行这条指令";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -203,13 +212,82 @@
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // treeView
+            // 
+            this.treeView.Location = new System.Drawing.Point(601, 40);
+            this.treeView.Name = "treeView";
+            this.treeView.Size = new System.Drawing.Size(174, 389);
+            this.treeView.TabIndex = 20;
+            this.treeView.AfterExpand += new System.Windows.Forms.TreeViewEventHandler(this.treeView_AfterExpand);
+            this.treeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView_AfterSelect);
+            // 
+            // listView1
+            // 
+            this.listView1.LargeImageList = this.imageList1;
+            this.listView1.Location = new System.Drawing.Point(784, 40);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(194, 388);
+            this.listView1.SmallImageList = this.imageList1;
+            this.listView1.TabIndex = 21;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.SmallIcon;
+            // 
+            // imageList1
+            // 
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(171, 60);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(143, 21);
+            this.textBox2.TabIndex = 22;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("宋体", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label5.Location = new System.Drawing.Point(168, 44);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(87, 15);
+            this.label5.TabIndex = 23;
+            this.label5.Text = "当前服务器";
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(325, 328);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(90, 22);
+            this.button5.TabIndex = 24;
+            this.button5.Text = "刷新连接指令";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // steamcommandtext
+            // 
+            this.steamcommandtext.Location = new System.Drawing.Point(421, 328);
+            this.steamcommandtext.Name = "steamcommandtext";
+            this.steamcommandtext.ReadOnly = true;
+            this.steamcommandtext.Size = new System.Drawing.Size(151, 21);
+            this.steamcommandtext.TabIndex = 25;
+            // 
             // ClientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(584, 461);
+            this.ClientSize = new System.Drawing.Size(984, 461);
             this.ControlBox = false;
+            this.Controls.Add(this.steamcommandtext);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.treeView);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button1);
@@ -226,8 +304,8 @@
             this.Controls.Add(this.addonList);
             this.Controls.Add(this.amhc_btn_exit);
             this.Controls.Add(this.debug_dialog);
-            this.MaximumSize = new System.Drawing.Size(600, 500);
-            this.MinimumSize = new System.Drawing.Size(600, 500);
+            this.MaximumSize = new System.Drawing.Size(1000, 500);
+            this.MinimumSize = new System.Drawing.Size(1000, 500);
             this.Name = "ClientForm";
             this.Text = "AMHC-DOTA2RPG安装工具";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -254,6 +332,13 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.TreeView treeView;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.TextBox steamcommandtext;
     }
 }
 

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AMHC_SERVER
+namespace AMHC_SERVER_SERVER
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace AMHC_SERVER
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ServerForm());
+            Application.Run(new Form1());
         }
     }
 }

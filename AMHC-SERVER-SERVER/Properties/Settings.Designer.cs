@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AMHC_SERVER.Properties
+namespace AMHC_SERVER_SERVER.Properties
 {
 
 

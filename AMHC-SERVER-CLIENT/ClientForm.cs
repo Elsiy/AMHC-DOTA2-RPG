@@ -1,19 +1,21 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
+using System.Drawing;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using Microsoft.Win32;
 using System.IO;
 using System.IO.Compression;
-using System.Diagnostics;
-using System.Runtime.InteropServices;
 using System.Net;
 using System.Net.Sockets;
+using System.Runtime.InteropServices;
+using System.Text;
 using System.Threading;
-using System.Collections;
+using System.Windows.Forms;
+
 
 namespace AMHC_SERVER_CLIENT
 {
@@ -32,6 +34,7 @@ namespace AMHC_SERVER_CLIENT
         {
             InitializeComponent();
         }
+       
         //窗体载入
         public void Form1_Load(object sender, EventArgs e)
         {
@@ -54,7 +57,96 @@ namespace AMHC_SERVER_CLIENT
             update_dialog("读取活动RPG-成功");
             ReadCurrentAddon();
             installList.SelectedIndex = 0;
+
+            //文件显示器相关
+            /*string[] LogicDrives = System.IO.Directory.GetLogicalDrives();
+            TreeNode[] cRoot = new TreeNode[LogicDrives.Length];
+            for (int i = 0; i < LogicDrives.Length; i++)
+            {
+                TreeNode drivesNode = new TreeNode(LogicDrives[i]);
+                treeView.Nodes.Add(drivesNode);
+                if (LogicDrives[i] != "A:\\" && LogicDrives[i] != "B:\\")
+                    getSubNode(drivesNode, true);
+            }*/
+            TreeNode aPath = new TreeNode(addonPath);
+            //aPath.Text="ADDONS根目录";
+            aPath.ToolTipText="ADDONS根目录";
+            treeView.Nodes.Add(aPath);
+            getSubNode (aPath,true);
+
         }
+        #region 文件显示相关
+        private void treeView_AfterExpand(object sender, System.Windows.Forms.TreeViewEventArgs e)
+        {
+            try
+            {
+                foreach (TreeNode tn in e.Node.Nodes)
+                {
+                    getSubNode(tn, true);
+                }
+            }
+            catch { ;}
+        }
+        private void treeView_AfterSelect(object sender, System.Windows.Forms.TreeViewEventArgs e)
+        {
+            listView1.Items.Clear();
+            DirectoryInfo selDir =
+            new DirectoryInfo(e.Node.FullPath);
+            DirectoryInfo[] listDir = new DirectoryInfo[0];;
+            FileInfo[] listFile = new FileInfo[0];
+            try
+            {
+                listDir = selDir.GetDirectories();
+                listFile = selDir.GetFiles();
+            }
+            catch
+            {
+                MessageBox.Show("该项目已经不存在");
+            }
+            foreach (DirectoryInfo cc in listDir) { 
+                                
+                //imageList1.Images.Clear();
+                //Icon mIcon;
+                //mIcon = Icon.ExtractAssociatedIcon(e.Node.FullPath+"\\"+cc.Name);
+
+                //imageList1.Images.Add(mIcon);
+                //listView1.SmallImageList = imageList1;
+                listView1.Items.Add(cc.Name, 6);
+            }
+            foreach (FileInfo d in listFile) { 
+                imageList1.Images.Clear();
+                Icon mIcon;
+                mIcon = Icon.ExtractAssociatedIcon(e.Node.FullPath+"\\"+d.Name);
+
+                imageList1.Images.Add(mIcon);
+                //MessageBox.Show(imageList1.Images.Count.ToString());
+                listView1.SmallImageList = imageList1;
+                listView1.Items.Add(d.Name, 1);
+            }
+        }
+        private void getSubNode(TreeNode PathName, bool isEnd)
+        {
+            if (!isEnd)
+                return; //exit this  
+            TreeNode curNode;
+            DirectoryInfo[] subDir;
+            DirectoryInfo curDir = new DirectoryInfo(PathName.FullPath);
+            try
+            {
+                subDir = curDir.GetDirectories();
+            }
+            catch
+            {
+                subDir = curDir.GetDirectories();
+            }
+            foreach (DirectoryInfo d in subDir)
+            {
+                curNode = new TreeNode(d.Name);
+                PathName.Nodes.Add(curNode);
+                getSubNode(curNode, false);
+            }
+        }
+        #endregion
         //设置活动RPG按钮
         private void amhc_btn_set_addon_Click(object sender, EventArgs e)
         {
@@ -252,7 +344,7 @@ namespace AMHC_SERVER_CLIENT
                 if (addonFolder is DirectoryInfo)    //判断是否文件夹
                 {
                     DirectoryInfo aFolder = new DirectoryInfo(addonFolder.FullName);
-                    if (aFolder.Name != "zAddonsBak")
+                    if (aFolder.Name != "zAddonsBak"|| aFolder.Name != "d2fixups"||aFolder.Name != "metamod"||aFolder.Name != "sourcemod")
                     {
                         update_dialog("删除现有Addon:" + aFolder.Name);
                         DeleteFolder(addonPath + "\\" + aFolder.Name);
@@ -605,13 +697,15 @@ namespace AMHC_SERVER_CLIENT
         {
             //AUTOEXECSETTINGS forms = new AUTOEXECSETTINGS();
             //forms.Show();
-            string _command = "";
-            _command = debug_dialog.SelectedItem.ToString();
-            if (_command != "")
-            {
-                update_dialog(":复制成功:请到游戏CTRL+V粘贴:");
-                Clipboard.SetData(System.Windows.Forms.DataFormats.Text, _command);
-            }
+            //string _command = "";
+            //_command = debug_dialog.SelectedItem.ToString();
+            MessageBox.Show("连接前，如果改变过活动RPG，请手动在控制台输入一次update_addon_paths!!!请先输入完成后再来点击确定，否则游戏可能崩溃！！！");
+            SteamCommand(steamcommandtext.Text);
+            //if (_command != "")
+            //{
+            //    update_dialog(":复制成功:请到游戏CTRL+V粘贴:");
+            //    Clipboard.SetData(System.Windows.Forms.DataFormats.Text, _command);
+            //}
         }
         // 读操作
         private static ArrayList Readini(string readFile)
@@ -639,5 +733,28 @@ namespace AMHC_SERVER_CLIENT
             sw.WriteLine(data);
             sw.Close();
         }
+        static void SteamCommand(string command)
+        {
+            try
+            {
+                Process.Start("explorer.exe", "steam://" + command);
+            }
+            catch (System.Exception)
+            {
+                MessageBox.Show("执行失败，请确认DOTA2运行中");
+            }
+            
+        }
+
+        private void debug_dialog_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //steamcommandtext.Text = debug_dialog.SelectedItem.ToString();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            steamcommandtext.Text = "connect/play.dota2rpg.com:27060";
+        }
+
     }
 }
